@@ -35,3 +35,13 @@ CREATE TABLE turnos (
     motivo TEXT NOT NULL,
     FOREIGN KEY (mascota_id) REFERENCES mascotas(id)
 );
+
+CREATE TABLE adopciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mascota_id INT NOT NULL,
+    adoptante_nombre VARCHAR(100) NOT NULL,
+    adoptante_telefono VARCHAR(20) NOT NULL,
+    fecha_adopcion DATE NOT NULL,
+    observaciones TEXT,
+    FOREIGN KEY (mascota_id) REFERENCES mascotas(id) ON DELETE CASCADE
+);
