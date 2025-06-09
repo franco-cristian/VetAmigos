@@ -1,0 +1,33 @@
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    rol ENUM('veterinario', 'administrativo') NOT NULL
+);
+
+INSERT INTO usuarios (email, password_hash, rol) VALUES 
+('vet@vetamigos.com', '$2y$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17liWy', 'veterinario'),
+('admin@vetamigos.com', '$2y$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17liWy', 'administrativo');
+
+CREATE TABLE duenios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE mascotas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
+    duenio_id INT NOT NULL,
+    FOREIGN KEY (duenio_id) REFERENCES duenios(id)
+);
+
+CREATE TABLE turnos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mascota_id INT NOT NULL,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    motivo TEXT NOT NULL,
+    FOREIGN KEY (mascota_id) REFERENCES mascotas(id)
+);
