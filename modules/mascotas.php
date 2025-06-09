@@ -29,10 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $duenioId = $conn->lastInsertId();
         
         // Insertar mascota
-        $stmtMascota = $conn->prepare("INSERT INTO mascotas (nombre, tipo, duenio_id) VALUES (?, ?, ?)");
-        $stmtMascota->execute([$nombre, $tipo, $duenioId]);
-        
-        //Marcar si está en adopción
         $stmtMascota = $conn->prepare("INSERT INTO mascotas (nombre, tipo, duenio_id, en_adopcion) VALUES (?, ?, ?, ?)"); 
         $stmtMascota->execute([$nombre, $tipo, $duenioId, $en_adopcion]);
 
