@@ -5,7 +5,7 @@
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.0-06B6D4?logo=tailwind-css)
 ![Hosting](https://img.shields.io/badge/Hosting-Aeon_Free-2496ED)
 
-Sistema web para gestión de veterinarias desarrollado como proyecto académico de la materia Metodología de Sistemas I. Permite registrar mascotas, agendar turnos, enviar recordatorios, consultar historial de visitas y gestionar adopciones.
+Sistema web para gestión de veterinarias desarrollado como proyecto académico de la materia Metodología de Sistemas I de la Tecnicatura Universitaria en Programación cursada en la Universidad Tecnológica Nacional – Facultad Regional Resistencia - Subsede Formosa. Permite registrar mascotas, agendar turnos, enviar recordatorios, consultar historial de visitas y gestionar adopciones.
 
 ## ✨ Características Principales  
 - **Autenticación de usuarios** con roles (Veterinario/Administrativo)  
@@ -54,14 +54,13 @@ $password = "tu_password";
 ```text
 raíz/
 ├── index.php                    # Redirección inicial
-├── .htaccess                    # Configuración Apache
-├── vetamigos_db.sql             # Estructura de la base de datos
 ├── includes/                    # Funciones core
 │   ├── auth.php                 # Autenticación y roles
 │   ├── database.php             # Conexión MySQL
 │   ├── funciones.php            # Utilidades
 │   ├── header.php               # Cabecera común
-│   └── footer.php               # Pie de página
+│   ├── footer.php               # Pie de página
+│   └── vetamigos_db.sql         # Estructura de la base de datos
 └── modules/                     # Módulos de la aplicación
     ├── login.php                # Inicio de sesión
     ├── dashboard.php            # Panel principal
